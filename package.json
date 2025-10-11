@@ -6,6 +6,7 @@
     "start": "node --loader ts-node/esm export.ts"
   },
   "dependencies": {
+    "dotenv": "^17.2.3",
     "open": "^10.0.0",
     "undici": "^6.19.8"
   },

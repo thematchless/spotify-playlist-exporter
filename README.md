@@ -24,7 +24,7 @@ Exportiere deine Spotify-Playlists als JSON-Dateien zur lokalen Weiterverarbeitu
      ```sh
      export SPOTIFY_CLIENT_ID=deine_spotify_client_id
      ```
-   - Alternativ kannst du die Variable in einer `.env`-Datei oder direkt im Terminal setzen.
+   - Alternativ kannst du die Variable in einer `.env`-Datei (z.B. mit dem Inhalt `SPOTIFY_CLIENT_ID=deine_spotify_client_id`) oder direkt im Terminal setzen.
 2. Stelle sicher, dass im Spotify Developer Dashboard die Redirect-URI `http://127.0.0.1:8888/callback` eingetragen ist.
 
 ## Nutzung
@@ -42,4 +42,3 @@ Es öffnet sich ein Browserfenster zur Spotify-Authentifizierung. Nach erfolgrei
 
 ## Lizenz
 Sofern nicht anders angegeben, steht dieses Projekt unter einer MIT-ähnlichen Open-Source-Lizenz.
-

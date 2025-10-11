@@ -1,3 +1,6 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import http from "node:http";
 import crypto from "node:crypto";
 import { mkdir, writeFile } from "node:fs/promises";
