@@ -1,0 +1,17 @@
+{
+  "name": "spotify-export",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node --loader ts-node/esm export.ts"
+  },
+  "dependencies": {
+    "open": "^10.0.0",
+    "undici": "^6.19.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.18.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
