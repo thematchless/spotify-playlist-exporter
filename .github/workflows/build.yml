@@ -39,7 +39,7 @@ jobs:
         run: npm install
 
       - name: Check format and linting
-        run: npx run biome:check
+        run: npm run biome:check
 
   javascript-build:
     name: JS build
