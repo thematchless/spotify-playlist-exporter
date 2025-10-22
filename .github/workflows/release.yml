@@ -1,0 +1,42 @@
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+name: GitHub release
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Get next version
+        id: get_next_version
+        uses: thenativeweb/get-next-version@2.7.1
+
+      - name: Show the next version
+        run: |
+          echo Version: ${{ steps.get_next_version.outputs.version }}
+          echo has next Version: ${{ steps.get_next_version.outputs.hasNextVersion }}
+
+      - name: Tag version
+        if: ${{ steps.get_next_version.outputs.hasNextVersion == 'true' }}
+        run: |
+          NEXT_VERSION=${{ steps.get_next_version.outputs.version }}
+          git tag $NEXT_VERSION
+          git push origin $NEXT_VERSION
+
+      - name: create GitHub release
+        if: ${{ steps.get_next_version.outputs.hasNextVersion == 'true' }}
+        run: |
+          echo "# :shipit: Creating release ${{ steps.get_next_version.outputs.version }}! :rocket:" >> $GITHUB_STEP_SUMMARY
+          gh release create "${{ steps.get_next_version.outputs.version }}" --generate-notes
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
