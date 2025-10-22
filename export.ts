@@ -59,7 +59,7 @@ async function getTokenWithPKCE(): Promise<{
         const returnedCode = url.searchParams.get("code");
         res.statusCode = 200;
         res.setHeader("Content-Type", "text/plain");
-        res.end("Auth ok. Tab kann geschlossen werden.");
+        res.end("Auth ok. You can close this tab.");
         server.close();
         returnedCode ? resolve(returnedCode) : reject(new Error("Kein Code"));
       }
@@ -145,7 +145,7 @@ async function exportAll() {
   });
   if (!meRes.ok) throw new Error(`/me: ${meRes.status} ${await meRes.text()}`);
   const me = (await meRes.json()) as { display_name?: string; id: string };
-  console.log(`Angemeldet als ${me.display_name ?? me.id} (${me.id})`);
+  console.log(`Logged in as ${me.display_name ?? me.id} (${me.id})`);
 
   const playlists = await fetchAll<Playlist>(
     "https://api.spotify.com/v1/me/playlists?limit=50",
@@ -157,7 +157,7 @@ async function exportAll() {
   const exportIndex: Array<{ id: string; name: string; file: string }> = [];
 
   for (const p of playlists) {
-    console.log(`→ ${p.name} (${p.tracks.total} Titel)`);
+    console.log(`→ ${p.name} (${p.tracks.total} tracks)`);
     const items = await fetchAll<PlaylistItem>(
       `https://api.spotify.com/v1/playlists/${p.id}/tracks?limit=100&market=from_token`,
       access_token,
@@ -206,9 +206,8 @@ async function exportAll() {
     JSON.stringify(exportIndex, null, 2),
     "utf8",
   );
-  console.log(
-    `Fertig. ${playlists.length} Playlists exportiert nach ./export/`,
-  );
+  console.log(`Done. ${playlists.length} playlists exported to ./export/`);
+  process.exit(1);
 }
 
 exportAll().catch((err) => {

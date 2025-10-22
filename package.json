@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "start": "node --loader ts-node/esm export.ts",
+    "start": "node --no-warnings --loader ts-node/esm export.ts",
     "build": "tsc --noEmit",
     "biome:check": "npx biome check .",
     "biome:check:fix": "npx biome check . --write --unsafe",
