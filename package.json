@@ -3,21 +3,27 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "start": "node --loader ts-node/esm export.ts",
+    "start": "node --no-warnings --loader ts-node/esm export.ts",
     "build": "tsc --noEmit",
-    "biome:check": "echo 'Biome check placeholder'"
+    "biome:check": "npx biome check .",
+    "biome:check:fix": "npx biome check . --write --unsafe",
+    "biome:ci": "npm run biome:check & npm run biome:format",
+    "biome:fix": "npm run biome:check:fix & npm run biome:format:fix",
+    "biome:format": "npx biome format .",
+    "biome:format:fix": "npx biome format . --write"
   },
   "dependencies": {
     "dotenv": "^17.2.3",
-    "open": "^10.0.0",
-    "undici": "^6.19.8"
+    "open": "^10.2.0",
+    "undici": "^7.16.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.2.7",
     "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
     "@commitlint/format": "^20.0.0",
     "@commitlint/types": "^20.0.0",
-    "@types/node": "^22.18.10",
+    "@types/node": "^24.9.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
   },
