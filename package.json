@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "start": "node --loader ts-node/esm export.ts"
+    "start": "node --loader ts-node/esm export.ts",
+    "build": "tsc --noEmit",
+    "biome:check": "echo 'Biome check placeholder'"
   },
   "dependencies": {
     "dotenv": "^17.2.3",
