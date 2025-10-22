@@ -41,4 +41,4 @@ A browser window will open for Spotify authentication. After successful login, y
 - The exported data includes all metadata (including the [ISRC](https://en.wikipedia.org/wiki/International_Standard_Recording_Code) codes for tracks) and track lists for each playlist.
 
 ## License
-Unless otherwise stated, this project is released under an MIT-like open source license.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
