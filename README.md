@@ -1,44 +1,44 @@
 # Spotify Playlist Exporter
 
-Exportiere deine Spotify-Playlists als JSON-Dateien zur lokalen Weiterverarbeitung oder Archivierung.
+Export your Spotify playlists as JSON files for local processing or archiving.
 
 ## Features
-- Exportiert alle privaten, kollaborativen und gespeicherten Playlists deines Spotify-Accounts
-- Speichert jede Playlist als separate JSON-Datei im Verzeichnis `export/`
-- Authentifizierung über den offiziellen Spotify PKCE OAuth2-Flow
+- Exports all private, collaborative, and saved playlists from your Spotify account
+- Saves each playlist as a separate JSON file in the `export/` directory
+- Authentication via official Spotify PKCE OAuth2 flow
 
-## Voraussetzungen
-- Node.js (empfohlen: >=18)
-- Ein Spotify Developer Account und eine registrierte Anwendung ([Spotify Developer Dashboard](https://developer.spotify.com/dashboard))
+## Prerequisites
+- Node.js (recommended: LTS 24 or newer)
+- A Spotify Developer Account and a registered application ([Spotify Developer Dashboard](https://developer.spotify.com/dashboard))
 
 ## Installation
-1. Repository klonen oder Quellcode herunterladen
-2. Abhängigkeiten installieren:
+1. Clone the repository or download the source code
+2. Install dependencies:
    ```sh
    npm install
    ```
 
-## Konfiguration
-1. Lege im Projektverzeichnis die Umgebungsvariable `SPOTIFY_CLIENT_ID` an. Dies ist die Client-ID deiner Spotify-App.
-   - Beispiel (macOS/Linux):
+## Configuration
+1. Set the environment variable `SPOTIFY_CLIENT_ID` in your project directory. This is the client ID of your Spotify app.
+   - Example (macOS/Linux):
      ```sh
-     export SPOTIFY_CLIENT_ID=deine_spotify_client_id
+     export SPOTIFY_CLIENT_ID=your_spotify_client_id
      ```
-   - Alternativ kannst du die Variable in einer `.env`-Datei (z.B. mit dem Inhalt `SPOTIFY_CLIENT_ID=deine_spotify_client_id`) oder direkt im Terminal setzen.
-2. Stelle sicher, dass im Spotify Developer Dashboard die Redirect-URI `http://127.0.0.1:8888/callback` eingetragen ist.
+   - Alternatively, you can set the variable in a `.env` file or directly in your terminal.
+2. Make sure the Redirect URI `http://127.0.0.1:8888/callback` is registered in the Spotify Developer Dashboard.
 
-## Nutzung
-Starte den Exportvorgang mit:
+## Usage
+Start the export process with:
 ```sh
 npm start
 ```
 
-Es öffnet sich ein Browserfenster zur Spotify-Authentifizierung. Nach erfolgreichem Login werden die Playlists exportiert und als einzelne JSON-Dateien im Verzeichnis `export/` gespeichert.
+A browser window will open for Spotify authentication. After successful login, your playlists will be exported and saved as individual JSON files in the `export/` directory.
 
-## Hinweise
-- Das Verzeichnis `export/` ist in `.gitignore` eingetragen und wird nicht versioniert.
-- Jede Playlist wird als eigene Datei im JSON-Format gespeichert.
-- Die exportierten Daten enthalten alle Metadaten und Tracklisten der jeweiligen Playlists.
+## Notes
+- The `export/` directory is listed in `.gitignore` and is not versioned.
+- Each playlist is saved as a separate JSON file.
+- The exported data includes all metadata (including the [ISRC](https://en.wikipedia.org/wiki/International_Standard_Recording_Code) codes for tracks) and track lists for each playlist.
 
-## Lizenz
-Sofern nicht anders angegeben, steht dieses Projekt unter einer MIT-ähnlichen Open-Source-Lizenz.
+## License
+Unless otherwise stated, this project is released under an MIT-like open source license.
