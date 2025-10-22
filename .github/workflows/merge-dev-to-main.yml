@@ -1,0 +1,30 @@
+name: merge dev into main
+concurrency: main
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  merge-dev-into-main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v5
+        with:
+          ssh-key: ${{ secrets.GIT_KEY }}
+
+      - name: Set git config
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Merge develop into main
+        run: |
+          git fetch --unshallow
+          git checkout main
+          git pull
+          git merge origin/develop --ff-only
+          git push
