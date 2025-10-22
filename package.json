@@ -14,5 +14,8 @@
     "@types/node": "^22.18.10",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=24"
   }
 }
