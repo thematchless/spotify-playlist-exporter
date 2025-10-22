@@ -1,19 +1,3 @@
-/*
- * animari GbR CONFIDENTIAL
- * ________________________
- *
- * Copyright (c) 2020 - 2023 animari GbR, All Rights Reserved.
- *
- * NOTICE: All information contained herein is, and remains the property
- * of animari GbR and its suppliers, if any. The intellectual and
- * technical concepts contained herein are proprietary to animari GbR and
- * its suppliers and may be covered by German Laws and Foreign Patents,
- * patents in process, and are protected by trade secret or copyright law.
- * Dissemination of this information or reproduction of this material is
- * strictly forbidden unless prior written permission is obtained from
- * animari GbR.
- */
-
 import type { UserConfig } from "@commitlint/types";
 
 const Configuration: UserConfig = {
